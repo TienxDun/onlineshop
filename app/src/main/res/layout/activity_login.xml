@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Hình nền -->
+    <ImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <!-- Khung đăng nhập -->
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/bg_card"
+        android:elevation="10dp">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingBottom="8dp"/>
+
+        <!-- Phụ đề -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in to continue"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:layout_gravity="center"
+            android:paddingBottom="24dp"/>
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/edtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_input"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#000"
+            android:textColorHint="#888888" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/edtPassword_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:drawableEnd="@drawable/ic_visibility"
+            android:padding="12dp"
+            android:textColor="#000"
+            android:textColorHint="#888888" />
+
+        <!-- Nút Đăng nhập -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:background="@drawable/bg_button"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Liên kết tạo tài khoản -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account? "
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/tvCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create a new account"
+            android:textSize="14sp"
+            android:textColor="#007BFF"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:paddingTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Logo và tên app ở cuối -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digital Hub"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp" />
+</RelativeLayout>
