@@ -19,8 +19,11 @@ public class NotificationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
+        addControls();
+        handleEvents();
+    }
 
-        recyclerNotifications = findViewById(R.id.recyclerNotifications);
+    private void handleEvents() {
         notificationList = new ArrayList<>();
 
         // Thêm dữ liệu thông báo mẫu
@@ -30,5 +33,10 @@ public class NotificationsActivity extends AppCompatActivity {
         adapter = new NotificationAdapter(notificationList);
         recyclerNotifications.setLayoutManager(new LinearLayoutManager(this));
         recyclerNotifications.setAdapter(adapter);
+    }
+
+    private void addControls() {
+        recyclerNotifications = findViewById(R.id.recyclerNotifications);
+
     }
 }

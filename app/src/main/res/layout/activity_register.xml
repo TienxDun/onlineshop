@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Background Image -->
 
@@ -45,79 +46,119 @@
             android:layout_height="wrap_content"
             android:text="Log in here"
             android:textSize="14sp"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#007BFF"
+            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp" />
 
-        <!-- Input Fields -->
-        <EditText
-            android:id="@+id/edtFirstName"
+        <!-- First Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:hint="First Name"
-            android:padding="12dp" />
+            android:hint="First Name">
 
-        <EditText
-            android:id="@+id/edtLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:hint="Last Name"
-            android:padding="12dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edtBirth"
+        <!-- Last Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:drawableEnd="@drawable/ic_calendar"
+            android:hint="Last Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Birth Date with Calendar Icon -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Birth"
-            android:padding="12dp" />
+            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconMode="custom">
 
-        <EditText
-            android:id="@+id/edtGender"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Gender -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:hint="Gender"
-            android:padding="12dp" />
+            android:hint="Gender">
 
-        <EditText
-            android:id="@+id/edtEmail"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp" />
+            android:hint="Email">
 
-        <EditText
-            android:id="@+id/edtPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password with Visibility Toggle -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_input"
-            android:drawableEnd="@drawable/ic_visibility"
             android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="12dp" />
+            app:endIconMode="password_toggle">
 
-        <EditText
-            android:id="@+id/edtConfirmPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Confirm Password with Visibility Toggle -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_input"
-            android:drawableEnd="@drawable/ic_visibility"
             android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:padding="12dp" />
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btnRegister"
@@ -125,8 +166,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button"
             android:padding="12dp"
+            android:textStyle="bold"
             android:text="REGISTER"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </LinearLayout>
     <!-- Logo và tên app ở cuối -->

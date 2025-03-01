@@ -6,12 +6,11 @@
 
     <TextView
         android:id="@+id/txtMessage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@drawable/bg_message"
         android:padding="10dp"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:text="Tin nhắn"
         android:textColor="@android:color/black" />
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,6 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:text="Login"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -43,30 +45,40 @@
             android:paddingBottom="24dp"/>
 
         <!-- Username -->
-        <EditText
-            android:id="@+id/edtUsername"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_input"
-            android:hint="Username"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#000"
-            android:textColorHint="#888888" />
+            android:hint="Username">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:textColorHint="#888888" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <!-- Password -->
-        <EditText
-            android:id="@+id/edtPassword_Login"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:drawableEnd="@drawable/ic_visibility"
-            android:padding="12dp"
-            android:textColor="#000"
-            android:textColorHint="#888888" />
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword_Login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:textColorHint="#888888" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Nút Đăng nhập -->
         <Button
@@ -76,6 +88,7 @@
             android:text="LOGIN"
             android:background="@drawable/bg_button"
             android:textColor="@android:color/white"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"/>
 

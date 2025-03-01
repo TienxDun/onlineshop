@@ -15,10 +15,11 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        addControls();
+        handleEvents();
+    }
 
-        txtWelcome = findViewById(R.id.txtWelcome);
-        btnLogout = findViewById(R.id.btnLogout);
-
+    private void handleEvents() {
         // Hiển thị thông tin người dùng
         txtWelcome.setText("Xin chào, Admin!");
 
@@ -31,5 +32,10 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void addControls() {
+        txtWelcome = findViewById(R.id.txtWelcome);
+        btnLogout = findViewById(R.id.btnLogout);
     }
 }

@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void addHandles() {
+
         // Xử lý sự kiện khi bấm nút LOGIN
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,12 +35,23 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edtUsername.getText().toString().trim();
                 String password = edtPassword_Login.getText().toString().trim();
 
-                if(username.isEmpty() || password.isEmpty()) {
+                if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                    startActivity(intent);
+                    return;
                 }
+
+                if (username.contains(" ")) {
+                    Toast.makeText(LoginActivity.this, "Username cannot contain spaces", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length() < 6) {
+                    Toast.makeText(LoginActivity.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -53,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void addControls() {
-        // Ánh xạ các view
         tvCreateAccount = findViewById(R.id.tvCreateAccount);
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword_Login = findViewById(R.id.edtPassword_Login);
