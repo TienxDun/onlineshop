@@ -22,7 +22,6 @@ import java.io.IOException;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView imgProfile;
     private ImageView btnEditProfile;
 
@@ -40,20 +39,11 @@ public class ProfileActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, 100);
         });
-
-
     }
 
     private void addControls() {
         imgProfile = findViewById(R.id.imgProfile);
         btnEditProfile = findViewById(R.id.btnEditProfile);
-    }
-
-
-    private void openImageChooser() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/*");
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
     @Override
