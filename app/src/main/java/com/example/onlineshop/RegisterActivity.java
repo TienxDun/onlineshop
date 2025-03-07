@@ -16,10 +16,9 @@ import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText firstName, lastName, birth, gender, email, password, confirmPassword;
+    EditText firstName, lastName, birth, email, password, confirmPassword;
     Button btnRegister;
     TextView tvLogin;
-    TextInputEditText edtBirth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void handleEvents() {
-        // Bắt sự kiện khi nhấn vào edtBirth
-        edtBirth.setOnClickListener(new View.OnClickListener() {
+        // Bắt sự kiện khi nhấn vào Birth
+        birth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDatePickerDialog();
@@ -72,8 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void addControls() {
         firstName = findViewById(R.id.edtFirstName);
         lastName = findViewById(R.id.edtLastName);
-        edtBirth = findViewById(R.id.edtBirth);
-        gender = findViewById(R.id.edtGender);
+        birth = findViewById(R.id.edtBirth);
         email = findViewById(R.id.edtEmail);
         password = findViewById(R.id.edtPassword);
         confirmPassword = findViewById(R.id.edtConfirmPassword);
@@ -91,11 +89,10 @@ public class RegisterActivity extends AppCompatActivity {
                 this,
                 (view, selectedYear, selectedMonth, selectedDay) -> {
                     String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                    edtBirth.setText(selectedDate);
+                    birth.setText(selectedDate);
                 },
                 year, month, day
         );
-
         datePickerDialog.show();
     }
 }

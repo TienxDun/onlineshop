@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
-    TextView txtWelcome;
-    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,22 +18,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void handleEvents() {
-        // Hiển thị thông tin người dùng
-        txtWelcome.setText("Xin chào, Admin!");
 
-        // Sự kiện khi nhấn nút đăng xuất
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     private void addControls() {
-        txtWelcome = findViewById(R.id.txtWelcome);
-        btnLogout = findViewById(R.id.btnLogout);
+
     }
 }

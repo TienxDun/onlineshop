@@ -23,11 +23,9 @@ public class LoginActivity extends AppCompatActivity {
 
         addControls();
         addHandles();
-
     }
 
     private void addHandles() {
-
         // Xử lý sự kiện khi bấm nút LOGIN
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
