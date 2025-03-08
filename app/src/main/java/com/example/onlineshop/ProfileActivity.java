@@ -13,17 +13,23 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import java.io.IOException;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private ImageView imgProfile;
     private ImageView btnEditProfile;
+    private LinearLayout layoutLogout,layoutNotifications, layoutFAQ, layoutAppInfo;
+    private TextView tvProfileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +37,25 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         addControls();
-        addHandles();
+        handleEvents();
     }
 
-    private void addHandles() {
+    private void handleEvents() {
+        layoutAppInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, InfoActivity.class);
+            startActivity(intent);
+        });
+        layoutFAQ.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, ChatSupportActivity.class);
+            startActivity(intent);
+        });
+        layoutNotifications.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, NotificationsActivity.class);
+            startActivity(intent);
+        });
+        layoutLogout.setOnClickListener(v -> showLogoutDialog());
         btnEditProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, 100);
         });
     }
@@ -44,6 +63,47 @@ public class ProfileActivity extends AppCompatActivity {
     private void addControls() {
         imgProfile = findViewById(R.id.imgProfile);
         btnEditProfile = findViewById(R.id.btnEditProfile);
+        layoutLogout = findViewById(R.id.layoutLogout);
+        tvProfileName = findViewById(R.id.tvProfileName);
+        layoutNotifications = findViewById(R.id.layoutNotifications);
+        layoutFAQ = findViewById(R.id.layoutFAQ);
+        layoutAppInfo = findViewById(R.id.layoutAppInfo);
+
+        // Lấy dữ liệu username từ Intent
+        String username = getIntent().getStringExtra("username");
+        if (username != null){
+            tvProfileName.setText(username);
+        }
+    }
+    private void showLogoutDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Bạn chắc chắn muốn đăng xuất?")
+                .setPositiveButton("ĐỒNG Ý", (dialog, which) -> {
+                    // Xóa dữ liệu đăng nhập khỏi SharedPreferences
+                    getSharedPreferences("USER_PREF", MODE_PRIVATE)
+                            .edit()
+                            .remove("USERNAME")
+                            .apply();
+                    // Xử lý logout
+                    Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                })
+                .setNegativeButton("KHÔNG", (dialog, which) -> dialog.dismiss());
+
+        // Tạo và hiển thị AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Lấy nút Positive và Negative sau khi dialog hiển thị
+        Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+
+        // Đổi màu chữ
+        negativeButton.setTextColor(ContextCompat.getColor(this, android.R.color.darker_gray));
+        positiveButton.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark));
+
     }
 
     @Override

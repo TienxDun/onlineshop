@@ -27,6 +27,11 @@ public class NotificationsActivity extends AppCompatActivity {
         notificationList = new ArrayList<>();
 
         // Thêm dữ liệu thông báo mẫu
+        notificationList.add(new Notification("Thông báo", "Nội dung thông báo 1"));
+        notificationList.add(new Notification("Thông báo", "Nội dung thông báo 2"));
+        notificationList.add(new Notification("Thông báo", "Nội dung thông báo 3"));
+        notificationList.add(new Notification("Thông báo", "Nội dung thông báo 4"));
+        notificationList.add(new Notification("Thông báo", "Nội dung thông báo 5"));
         notificationList.add(new Notification("Khuyến mãi", "Giảm giá 50% khi mua hàng hôm nay!"));
         notificationList.add(new Notification("Cập nhật", "Ứng dụng đã được cập nhật lên phiên bản mới."));
 

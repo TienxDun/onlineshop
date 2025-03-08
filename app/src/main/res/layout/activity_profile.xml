@@ -32,7 +32,7 @@
             android:layout_height="24dp"
             android:layout_alignEnd="@id/imgProfile"
             android:layout_alignBottom="@id/imgProfile"
-            android:background="@drawable/bg_button"
+            android:background="@drawable/bg_input"
             android:clickable="true"
             android:focusable="true"
             android:padding="4dp"
