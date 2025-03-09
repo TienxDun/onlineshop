@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
             android:padding="15dp"
-            android:text="Xóa Bộ Nhớ"
+            android:text="Xóa bộ nhớ đệm"
             android:textColor="#34729C"
             android:textSize="16sp" />
 

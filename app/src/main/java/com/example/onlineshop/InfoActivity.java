@@ -50,7 +50,7 @@ public class InfoActivity extends AppCompatActivity {
         // Hiển thị Dialog phiên bản mới nhất
         tvUpdateVersion.setOnClickListener(v -> {
             new AlertDialog.Builder(this)
-                    .setTitle("Đây là phiên bản cập nhật mới nhất")
+                    .setTitle("Đây là phiên bản mới nhất")
                     .setMessage("v1.0.0")
                     .setPositiveButton("ĐỒNG Ý", null)
                     .show();
