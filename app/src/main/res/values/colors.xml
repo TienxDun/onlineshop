@@ -2,5 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="xanh1">#34729C</color>
+    <color name="xanh2">#6CB1DA</color>
+    <color name="xanh3">#D1ECFF</color>
+    <color name="xanh4">#1E5470</color>
+    <color name="xanh5">#6EC1D1</color>
+    <color name="xanh6">#C8EAEC</color>
+
 
 </resources>
