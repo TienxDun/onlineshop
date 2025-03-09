@@ -27,8 +27,7 @@ public class LoginActivity extends AppCompatActivity {
                 .getString("USERNAME", null);
 
         if (savedUsername != null) {
-            // Chuyển thẳng vào ProfileActivity nếu đã đăng nhập
-            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("username", savedUsername);
             startActivity(intent);
             finish();
@@ -73,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 .putString("USERNAME", username)
                 .apply();
         // Chuyển sang ProfileActivity
-        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.putExtra("username", username);
         startActivity(intent);
         finish();
