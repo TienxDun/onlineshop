@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         // Mặc định hiển thị HomeFragment khi mở app
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new ProfileFragment())
+                    .replace(R.id.fragment_container, new HomeFragment())
                     .commit();
         }
     }

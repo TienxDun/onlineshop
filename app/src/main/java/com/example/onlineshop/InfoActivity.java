@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.onlineshop.fragments.ProfileFragment;
+
 import java.io.File;
 
 public class InfoActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class InfoActivity extends AppCompatActivity {
     private void handleEvents() {
         // Nút quay lại ProfileActivity
         btnBackInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(InfoActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(InfoActivity.this, ProfileFragment.class);
             startActivity(intent);
             finish();
         });

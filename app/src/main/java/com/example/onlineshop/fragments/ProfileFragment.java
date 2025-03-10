@@ -30,7 +30,6 @@ import androidx.fragment.app.Fragment;
 import com.example.onlineshop.ChatSupportActivity;
 import com.example.onlineshop.InfoActivity;
 import com.example.onlineshop.LoginActivity;
-import com.example.onlineshop.NotificationsActivity;
 import com.example.onlineshop.R;
 
 import java.io.IOException;
@@ -102,8 +101,12 @@ public class ProfileFragment extends Fragment {
         });
 
         layoutNotifications.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), NotificationsActivity.class);
-            startActivity(intent);
+            NotificationsFragment notificationsFragment = new NotificationsFragment();
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, notificationsFragment) // Thay thế fragment
+                    .addToBackStack(null) // Cho phép quay lại ProfileFragment khi nhấn back
+                    .commit();
         });
 
         layoutLogout.setOnClickListener(v -> showLogoutDialog());
