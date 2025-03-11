@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Hình ảnh sản phẩm -->
+        <ImageView
+            android:id="@+id/imgProduct"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pic1" />
+
+        <!-- Phần thông tin sản phẩm -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">  <!-- Đẩy nội dung lên trên -->
+
+            <!-- Tiêu đề sản phẩm -->
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:maxLines="2"
+                android:minHeight="40dp"
+                android:ellipsize="end"
+                android:text="Loa Bluetooth A88 Pro"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+
+            <!-- Giá + Giảm giá -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₫206.000"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvProductDiscount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-41%"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Đánh giá sao -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_star"/>
+
+                <TextView
+                    android:id="@+id/tvProductRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5.0"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Đẩy địa điểm xuống bottom -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgLocationIcon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvProductLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TP. Hồ Chí Minh"
+                android:textSize="14sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgLocationIcon"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

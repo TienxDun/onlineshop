@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "794563052595",
+    "project_id": "digitalhub-62f54",
+    "storage_bucket": "digitalhub-62f54.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794563052595:android:51776d30fdb2e07eb70f46",
+        "android_client_info": {
+          "package_name": "com.example.onlineshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsshMjeQpyEDL15zMtj-zm48ot-U5eSak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
