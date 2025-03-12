@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -14,20 +14,37 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!-- Hình ảnh sản phẩm -->
-        <ImageView
-            android:id="@+id/imgProduct"
+        <!-- FrameLayout chứa ảnh + discount -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/pic1" />
+            android:layout_height="wrap_content">
+
+            <!-- Hình ảnh sản phẩm -->
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pic1" />
+
+            <!-- TextView giảm giá ở góc trái trên cùng -->
+            <TextView
+                android:id="@+id/tvProductDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giảm 31%"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_discount"
+                android:layout_margin="8dp"
+                android:textSize="12sp"
+                android:layout_gravity="top|start"/>
+        </FrameLayout>
 
         <!-- Phần thông tin sản phẩm -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">  <!-- Đẩy nội dung lên trên -->
+            android:orientation="vertical">
 
             <!-- Tiêu đề sản phẩm -->
             <TextView
@@ -43,14 +60,14 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black" />
 
-
-            <!-- Giá + Giảm giá -->
+            <!-- Giá + Giá cũ (nếu có) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:gravity="start">
 
+                <!-- Giá hiện tại -->
                 <TextView
                     android:id="@+id/tvProductPrice"
                     android:layout_width="wrap_content"
@@ -60,50 +77,23 @@
                     android:textColor="@android:color/holo_red_dark"
                     android:textStyle="bold" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
+                <!-- Giá cũ -->
                 <TextView
-                    android:id="@+id/tvProductDiscount"
+                    android:id="@+id/tvProductOldPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-41%"
+                    android:text="₫350.000"
                     android:textSize="14sp"
-                    android:textColor="@android:color/holo_orange_dark"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Đánh giá sao -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_star"/>
-
-                <TextView
-                    android:id="@+id/tvProductRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5.0"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/black"
-                    android:layout_marginStart="4dp" />
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_marginTop="2dp"/>
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Đẩy địa điểm xuống bottom -->
+        <!-- ConstraintLayout chứa Location + Rating -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="8dp">
 
             <ImageView
                 android:id="@+id/imgLocationIcon"
@@ -113,6 +103,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/tvProductLocation"
                 android:layout_width="wrap_content"
@@ -123,6 +114,27 @@
                 android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imgLocationIcon"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvProductRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5.0"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

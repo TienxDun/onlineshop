@@ -1,17 +1,17 @@
 package com.example.onlineshop.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.example.onlineshop.ItemDetailActivity;
 import com.example.onlineshop.R;
 import com.example.onlineshop.model.Product;
 
@@ -42,6 +42,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.txtLocation.setText(product.getLocation());
 
         holder.imgProduct.setImageResource(product.getImageResId());
+        //Sự kiện click vào sản phẩm
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ItemDetailActivity.class);
+            intent.putExtra("productName", product.getName());
+            intent.putExtra("productImage", product.getImageResId());
+            intent.putExtra("productPrice", product.getPrice());
+            double oldPrice = product.getPrice() / (1 - product.getDiscount()); // ví dụ tính giá cũ
+            intent.putExtra("productOldPrice", oldPrice);
+            intent.putExtra("productDescription", "Mô tả chi tiết sản phẩm ở đây...");
+            context.startActivity(intent);
+        });
+
     }
 
     @Override

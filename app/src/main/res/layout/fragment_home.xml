@@ -14,27 +14,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:background="@drawable/bg_search"
-            android:padding="8dp"
             android:elevation="4dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-            <!-- Logo -->
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_logo_foreground"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_logo_foreground" />
 
-            <!-- Ô tìm kiếm -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
                 android:background="@drawable/bg_input_search"
-                android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingHorizontal="10dp">
 
                 <EditText
@@ -42,38 +39,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:hint="Search here ..."
+                    android:hint="Tìm kiếm ..."
                     android:padding="8dp"
                     android:singleLine="true"
                     android:textSize="14sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_search"
-                    android:padding="4dp"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_search" />
             </LinearLayout>
 
-            <!-- Giỏ hàng -->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_cart"
-                android:padding="8dp"
-                android:scaleType="centerInside" />
 
-            <!-- Thông báo -->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_notifications"
-                android:padding="8dp"
-                android:scaleType="centerInside" />
         </LinearLayout>
 
-
         <!-- Ảnh slide -->
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerBanner"
             android:layout_width="match_parent"
@@ -82,195 +65,36 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp" />
 
-
         <!-- Danh mục sản phẩm -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Category"
+            android:text="DANH MỤC"
             android:layout_margin="8dp"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="10dp"/>
 
-        <HorizontalScrollView
+        <!-- RecyclerView cho danh mục -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
             android:paddingVertical="8dp"
             android:paddingEnd="16dp"
-            android:scrollbars="none">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Laptop -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_laptop" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Laptop"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Điện thoại -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_phone" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Điện thoại"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Đồng hồ -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_watch" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Đồng hồ"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Âm thanh -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_audio" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Âm thanh"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Đồ gia dụng -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_home_appliances" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Đồ gia dụng"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Phụ kiện -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_accessories" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Phụ kiện"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Màn hình -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_monitor" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Màn hình"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <!-- Tivi -->
-                <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/ic_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tivi"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </HorizontalScrollView>
+            android:scrollbars="horizontal" />
 
         <!-- Popular Product -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Popular Product"
+            android:text="SẢN PHẨM NỔI BẬT"
             android:layout_margin="8dp"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="10dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerPopular"
             android:layout_width="match_parent"
@@ -287,14 +111,11 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="10dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerRecommended"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
             android:scrollbars="vertical"/>
-
-
     </LinearLayout>
 </ScrollView>
