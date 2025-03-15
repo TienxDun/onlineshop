@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- res/values/styles.xml -->
+    <style name="CustomNavigationView" parent="@style/Widget.Material3.NavigationView">
+        <!-- Giảm chiều cao item -->
+        <item name="android:listPreferredItemHeightSmall">36dp</item>
+        <item name="android:listPreferredItemHeight">36dp</item>
+
+        <!-- Nếu muốn chỉnh icon size hoặc text size -->
+        <item name="itemIconSize">20dp</item>
+        <!-- itemTextAppearanceActive, itemTextAppearanceInactive chỉ áp dụng cho BottomNavigationView/NavigationBarView,
+             nên với NavigationView, ta chỉnh text qua theme overlay hoặc set riêng layout item -->
+    </style>
+
+</resources>
